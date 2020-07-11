@@ -3,22 +3,32 @@
   flex-direction: column;
   width: $cardSize;
   background: #fff;
-  border: 1px solid #f3f3f3;
+  border: 1px solid $cardBorderColor;
   border-radius: 5px;
   padding: 30px 14px 14px;
   margin: 0 $cardMarginX 51px;
 
   &__img {
-    width: 160px;
-    height: 134px;
-    margin: 0 auto 45px;
+    width: $cardImgWidth;
+    height: $cardImgHeight;
+    margin: 0 auto;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.2);
+
+      box-sizing: content-box;
+      padding: #{$cardImgHeight*(1.2 - 1) / 2} 0;
+      margin: #{-$cardImgHeight*(1.2 - 1) / 2} auto;
+      outline: $imgBorderWidth solid $cardBorderColor;
+    }
   }
 
   &__name {
     font-size: 12px;
     font-weight: 500;
     line-height: 15px;
-    margin-top: 0;
+    margin-top: 45px;
     margin-bottom: 5px;
   }
 
@@ -71,6 +81,7 @@
     text-align: center;
     line-height: 40px;
     border: 1px solid $styleColor;
+    transition: background-color 1s;
 
     &:hover {
       background-color: #fff;
