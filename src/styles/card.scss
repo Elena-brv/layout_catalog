@@ -3,7 +3,7 @@
   flex-direction: column;
   width: $cardSize;
   background: #fff;
-  border: 1px solid #f3f3f3;
+  border: 1px solid $cardBorderColor;
   border-radius: 5px;
   padding: 30px 14px 14px;
 
@@ -11,6 +11,16 @@
     width: $cardImgWidth;
     height: $cardImgHeight;
     margin: 0 auto;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.2);
+
+      box-sizing: content-box;
+      padding: #{$cardImgHeight*(1.2 - 1) / 2} 0;
+      margin: #{-$cardImgHeight*(1.2 - 1) / 2} auto;
+      outline: 3px solid $cardBorderColor;
+    }
   }
 
   &__name {
@@ -70,6 +80,7 @@
     text-align: center;
     line-height: 40px;
     border: 1px solid $styleColor;
+    transition: background-color 1s;
 
     &:hover {
       background-color: #fff;
