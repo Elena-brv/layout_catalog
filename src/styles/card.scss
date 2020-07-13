@@ -5,7 +5,9 @@
   background: #fff;
   border: 1px solid $cardBorderColor;
   border-radius: 5px;
-  padding: 30px 14px 15px;
+
+  $cardPaddingTop: 30px;
+  padding: $cardPaddingTop 14px 15px;
 
   &__img {
     width: $cardImgWidth;
@@ -17,9 +19,14 @@
       transform: scale(1.2);
 
       box-sizing: content-box;
-      padding: #{$cardImgHeight*(1.2 - 1) / 2} 0;
-      margin: #{-$cardImgHeight*(1.2 - 1) / 2} auto;
-      outline: 3px solid $cardBorderColor;
+      $outlineImg: 3px;
+
+      $paddingImgHover: $cardImgHeight*(1.2 - 1) / 2;
+      padding-top: $cardPaddingTop - $paddingImgHover - $outlineImg;
+      margin-top: - #{$cardPaddingTop - $paddingImgHover - $outlineImg};
+      padding-bottom: $paddingImgHover;
+      margin-bottom: -$paddingImgHover;
+      outline: $outlineImg solid $cardBorderColor;
     }
   }
 
